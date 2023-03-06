@@ -4,6 +4,29 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Button } from 'components/ui/Button';
 import BaseContainer from "components/ui/BaseContainer";
 import PropTypes from "prop-types";
+import 'styles/views/Register.scss';
+
+const FormField = props => {
+    return (
+        <div className="login field">
+            <label className="login label">
+                {props.label}
+            </label>
+            <input
+                className="login input"
+                placeholder={props.placeholder}
+                value={props.value}
+                onChange={e => props.onChange(e.target.value)}
+            />
+        </div>
+    );
+};
+
+FormField.propTypes = {
+    label: PropTypes.string,
+    value: PropTypes.string,
+    placeholder: PropTypes.string,
+};
 
 const EditProfile = props => {
     const history = useHistory();
@@ -45,31 +68,9 @@ const EditProfile = props => {
         fetchLocalUser();
     }, []);
 
-    const FormField = props => {
-        return (
-            <div className="login field">
-                <label className="login label">
-                    {props.label}
-                </label>
-                <input
-                    className="login input"
-                    placeholder={props.placeholder}
-                    value={props.value}
-                    onChange={e => props.onChange(e.target.value)}
-                />
-            </div>
-        );
-    };
-
-    FormField.propTypes = {
-        label: PropTypes.string,
-        value: PropTypes.string,
-        placeholder: PropTypes.string,
-    };
-
     const submitUpdate = async () => {
 
-        if (username == oldUsername) {
+        if (username === oldUsername) {
             alert("You didn't change anything!");
             return;
         }
