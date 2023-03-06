@@ -24,7 +24,8 @@ jobs:
       - run: npm install
       - run: npm run build
         env:
-            CI:false
+            CI:
+              false
 
       - name: Deploy to App Engine
         id: deploy
