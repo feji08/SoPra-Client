@@ -32,7 +32,7 @@ const EditProfile = props => {
     const history = useHistory();
     const [localUserId, setLocalUserId] = useState(null);
     const [username, setUsername] = useState(null);
-    const [birthday, setBirthday] = useState(new Date());
+    const [birthday, setBirthday] = useState(null);
     const [oldUsername, setOldUsername] = useState(null);
     const [oldBirthday, setOldBirthday] = useState(null);
 
@@ -48,6 +48,7 @@ const EditProfile = props => {
                 // Get the returned user and update a new object.
                 setLocalUserId(response.data.id.toString());
                 setOldUsername(response.data.username)
+                setOldBirthday(response.data.birthday)
 
                 // This is just some data for you to see what is available.
                 // Feel free to remove it.
@@ -78,7 +79,7 @@ const EditProfile = props => {
         try {
 
             //////////////////////////////////////////////////////////////////
-            const requestBody = JSON.stringify({ localUserId, username });
+            const requestBody = JSON.stringify({ username, birthday });
             const response = await api.put(`/users/${localUserId}`, requestBody);
 
             history.push(`/profile/${localUserId}`);
@@ -100,6 +101,12 @@ const EditProfile = props => {
                         value={username}
                         placeholder={oldUsername}
                         onChange={un => setUsername(un)}
+                    />
+                    <FormField
+                        label="Birthday"
+                        value={birthday}
+                        placeholder={oldBirthday}
+                        onChange={un => setBirthday(un)}
                     />
                     <div className="register button-container">
                         <Button

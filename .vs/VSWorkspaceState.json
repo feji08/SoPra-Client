@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\routing",
+    "\\src\\components\\routing\\routers",
+    "\\src\\components\\ui",
+    "\\src\\components\\views",
+    "\\src\\helpers",
+    "\\src\\models",
+    "\\src\\styles",
+    "\\src\\styles\\views"
+  ],
+  "SelectedNode": "\\src\\components\\views\\EditProfile.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -118,8 +118,8 @@ const Profile = props => {
                         value={user.username}
                     />
                     <UserAttribute
-                        label="name"
-                        value={user.name}
+                        label="birthday"
+                        value={user.birthday}
                     />
                     <UserAttribute
                         label="status"
