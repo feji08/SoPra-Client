@@ -23,6 +23,9 @@ jobs:
           node-version: "18.x"
       - run: npm install
       - run: npm run build
+        env:
+            CI:
+              false
 
       - name: Deploy to App Engine
         id: deploy
