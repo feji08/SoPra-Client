@@ -118,16 +118,16 @@ const Profile = props => {
                         value={user.username}
                     />
                     <UserAttribute
-                        label="birthday"
-                        value={user.birthday}
+                        label="status"
+                        value={user.status}
                     />
                     <UserAttribute
                         label="creation date"
                         value={user.creationDate}
                     />
                     <UserAttribute
-                        label="status"
-                        value={user.status}
+                        label="birthday date"
+                        value={user.birthday}
                     />
                 </div>
             </div>

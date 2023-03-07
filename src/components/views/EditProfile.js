@@ -6,28 +6,6 @@ import BaseContainer from "components/ui/BaseContainer";
 import PropTypes from "prop-types";
 import 'styles/views/Register.scss';
 
-const FormField = props => {
-    return (
-        <div className="login field">
-            <label className="login label">
-                {props.label}
-            </label>
-            <input
-                className="login input"
-                placeholder={props.placeholder}
-                value={props.value}
-                onChange={e => props.onChange(e.target.value)}
-            />
-        </div>
-    );
-};
-
-FormField.propTypes = {
-    label: PropTypes.string,
-    value: PropTypes.string,
-    placeholder: PropTypes.string,
-};
-
 const EditProfile = props => {
     const history = useHistory();
     const [localUserId, setLocalUserId] = useState(null);
@@ -71,11 +49,6 @@ const EditProfile = props => {
 
     const submitUpdate = async () => {
 
-        if (username === oldUsername) {
-            alert("You didn't change anything!");
-            return;
-        }
-
         try {
 
             //////////////////////////////////////////////////////////////////
@@ -96,21 +69,22 @@ const EditProfile = props => {
                     <h4>Edit here</h4>
                 </div>
                 <div className="edit form">
-                    <FormField
-                        label="Username"
+                    <label>Username</label>
+                    <input
                         value={username}
                         placeholder={oldUsername}
-                        onChange={un => setUsername(un)}
+                        onChange={un => setUsername(un.target.value)}
                     />
-                    <FormField
-                        label="Birthday"
+                    <label>Birthday</label>
+                    <input
                         value={birthday}
                         placeholder={oldBirthday}
-                        onChange={un => setBirthday(un)}
+                        type="date"
+                        onChange={un => setBirthday(un.target.value)}
                     />
                     <div className="register button-container">
                         <Button
-                            disabled={!username || !birthday}
+                            disabled={!username & !birthday}
                             width="100%"
                             onClick={() => submitUpdate()}
                         >
