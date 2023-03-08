@@ -9,8 +9,8 @@ import 'styles/views/Register.scss';
 const EditProfile = props => {
     const history = useHistory();
     const [localUserId, setLocalUserId] = useState(null);
-    const [username, setUsername] = useState(null);
-    const [birthday, setBirthday] = useState(null);
+    const [username, setUsername] = useState("");
+    const [birthday, setBirthday] = useState("");
     const [oldUsername, setOldUsername] = useState(null);
     const [oldBirthday, setOldBirthday] = useState(null);
 
@@ -51,8 +51,7 @@ const EditProfile = props => {
 
         try {
 
-            //////////////////////////////////////////////////////////////////
-            const requestBody = JSON.stringify({ username, birthday });
+            const requestBody = JSON.stringify({ username: username||oldUsername, birthday });
             const response = await api.put(`/users/${localUserId}`, requestBody);
 
             history.push(`/profile/${localUserId}`);
@@ -94,6 +93,7 @@ const EditProfile = props => {
                     <div className="register button-container">
                         <Button
                             width="100%"
+                            onClick={() => history.push(`/profile/${localUserId}`)}
                         >
                             Cancel
                         </Button>

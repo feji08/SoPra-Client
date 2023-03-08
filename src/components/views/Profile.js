@@ -110,10 +110,6 @@ const Profile = props => {
                 </div>
                 <div className="user attribute">
                     <UserAttribute
-                        label="id"
-                        value={user.id}
-                    />
-                    <UserAttribute
                         label="username"
                         value={user.username}
                     />
