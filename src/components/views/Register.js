@@ -39,9 +39,6 @@ const Register = props => {
     return (
         <BaseContainer>
             <div className="register container">
-                <div className="register text">
-                    <h4>Register here</h4>
-                </div>
                 <div className="register form">
                     <FormField
                         label="Username"

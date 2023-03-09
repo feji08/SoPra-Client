@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { api, handleError } from 'helpers/api';
 import User from 'models/User';
 import { useHistory } from 'react-router-dom';
+import BaseContainer from "components/ui/BaseContainer";
 import { Button } from 'components/ui/Button';
 import 'styles/views/Profile.scss';
-import BaseContainer from "components/ui/BaseContainer";
 import PropTypes from "prop-types";
 import { useParams } from 'react-router-dom';
 
@@ -104,10 +104,10 @@ const Profile = props => {
 
     return user && (
         <BaseContainer>
+            <div className="profile text">
+                <h2>user {user.username}'s profile</h2>
+            </div>
             <div className="profile container">
-                <div className="profile text">
-                    <h4>user {user.username}'s profile</h4>
-                </div>
                 <div className="user attribute">
                     <UserAttribute
                         label="username"
@@ -126,18 +126,20 @@ const Profile = props => {
                         value={user.birthday}
                     />
                 </div>
+                <div className="register button-container">
+                    <Button className="view userlist"
+                        onClick={() => history.push(`/game`)}
+                    >
+                        userlist
+                    </Button>
+                    <Button className="edit profile"
+                        style={{ display: isMyProfile ? "block" : "none" }}
+                        onClick={() => history.push(`/profile/edit`)}
+                    >
+                        edit
+                    </Button>
+                </div>
             </div>
-            <Button className="view userlist"
-                onClick={() => history.push(`/game`)}
-            >
-                userlist
-            </Button>
-            <Button className="edit profile"
-                style={{ display: isMyProfile ? "block" : "none" }}
-                onClick={() => history.push(`/profile/edit`)}
-            >
-                edit
-            </Button>
         </BaseContainer>
     );
 };

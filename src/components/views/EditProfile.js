@@ -3,7 +3,6 @@ import { api, handleError } from 'helpers/api';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Button } from 'components/ui/Button';
 import BaseContainer from "components/ui/BaseContainer";
-import PropTypes from "prop-types";
 import 'styles/views/Register.scss';
 
 const EditProfile = props => {
@@ -64,10 +63,7 @@ const EditProfile = props => {
     return (
         <BaseContainer>
             <div className="register container">
-                <div className="register text">
-                    <h4>Edit here</h4>
-                </div>
-                <div className="edit form">
+                <div className="profile form">
                     <label>Username</label>
                     <input
                         value={username}
@@ -89,8 +85,6 @@ const EditProfile = props => {
                         >
                             Submit
                         </Button>
-                    </div>
-                    <div className="register button-container">
                         <Button
                             width="100%"
                             onClick={() => history.push(`/profile/${localUserId}`)}
